@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>each() : 반복문 처리</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				const obj=[{"addr":"seoul"}, {"addr":"busan"}, {"addr":"kwangju"}, {"addr":"asan"}];
+				$(obj).each(function(k,v) {
+					// 둘 중 하나만 사용하면됨(텍스트만 뽑아옴)
+					// console.log("k : ", k  ,"v : ",v["addr"]);
+					console.log("k : ", k  ,"v : ",v.addr);
+				});
+				$(obj).each(function(k,v) {
+					// value값을 가져옴(현재 객체 상태라서 object로 가져옴)
+					console.log("k : ", k  ,"v : ",v);
+				});
+				
+				$("#menu2 li").each(function(i, v) {
+					// value값을 가져옴(현재 객체 상태라서 object로 가져옴)
+					console.log("i : ", i , "v : ", v);
+				});
+				$("#menu2 li").each(function(i, v) {
+					// 둘 중 하나만 사용하면됨(텍스트만 뽑아옴)
+					// console.log("i : ", i , "v : ",v.innerText);
+					console.log("i : ", i , "v : ", $(v).text());
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>each</h1>
+		<ul id="menu1">
+			<li>content 1-1</li>
+			<li>content 1-2</li>
+			<li>content 1-3</li>
+		</ul>
+		<ul id="menu2">
+			<li>content 2-1</li>
+			<li>content 2-2</li>
+			<li>content 2-3</li>
+		</ul>
+	</body>
+</html>

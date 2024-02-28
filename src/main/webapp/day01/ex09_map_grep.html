@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>map(), grep()</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				const arr1=[
+					{"addr":"seoul",
+					"name":"moo"},
+					{"addr":"busan",
+					"name":"hong"},
+					{"addr":"daejeon",
+					"name":"park"}
+					];
+				
+				// obj = 배열 , idx = 순서(index)
+				// Function( Object elementOfArray, Integer indexInArray ) => Object
+				// Function( Object propertyOfObject, String key ) => Object
+				const res1=$.map(arr1, function(obj,idx) {
+					if(obj.addr === 'seoul')
+					return obj.name;
+				})
+				console.log(res1);
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
