@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Animate</title>
+		<style type="text/css">
+			img{
+				position: absolute;
+			}
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				let position = 0;
+				let timer;
+				$("#btn").click(function() {
+					// setInterval() 는 지정한 시간 후 콜백함수를 무한 반복으로 실행한다
+					// clearInterVal()로 실행 종료
+					timer = setInterval(() => {
+						position += 1;
+						$("img").css({"marginLeft": position, "marginTop": position});
+					}, 10);
+				});
+				$("img").click(function() {
+					clearInterval(timer);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id="btn">이동</button>
+		<div>
+			<img alt="image" src="../images/img03.jpg">
+		</div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>effects</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// fadeOut() = hide(), fadeIn() = show(), fadeToggle()
+				// 지연 시간 지정 : fast , slow || 200 ~ 600
+				
+				// fadeTo(speed, 투명도) : 투명도는 0.0 ~ 1.0 까지 자리를 차지한다
+				// fadeTo(speed, 투명도) 는 toggle 기능이 없다
+				
+				$("#btn1").click(function() {
+					$("#img").fadeOut();
+				});
+				
+				$("#btn2").click(function() {
+					$("#img").fadeIn();
+				});
+				
+				$("#btn3").click(function() {
+					$("#img").fadeToggle();
+				});
+				
+				// toggle 기능이 없어서 홀수, 짝수로 조건을 주어 toggle 기능처럼 만듬
+				let i=0;
+				$("#btn4").click(function() {
+					if (i++%2==0) {
+						$("#img").fadeTo(600, 0.0);
+					} else {
+						$("#img").fadeTo(600, 1.0);
+					}
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<button id="btn1">fadeOut</button>
+		<button id="btn2">fadeIn</button>
+		<button id="btn3">Hide/Show(fadeToggle)</button>
+		<button id="btn4">fadeTo</button>
+		<hr>
+		<img id="img" alt="image" src="../images/img01.jpg">
+		<hr>
+		<p>Hello</p>
+	</body>
+</html>

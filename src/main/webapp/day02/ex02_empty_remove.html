@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>empty(), remove()</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// clone() : 선택한 요소의 하위 요소 복제
+				const copyObj=$(".box1").children().clone();
+				
+				// remove() : 클래스가 box2인 요소를 삭제(하위 요소 포함)
+				$(".box2").remove();
+				
+				// empty() : 클래스가 box3인 요소의 하위 요소 삭제(보통 초기화할때 사용한다, 클래스 자체는 남아있음)
+				$(".box3").empty();
+				
+				// clone()으로 복사한 하위 요소를 empty()로 초기화한 box3에 삽입(append)
+				$(".box3").append(copyObj);
+			});
+		</script>
+	</head>
+	<body>
+		<div class="box1">
+			<p>content-1</p>
+			<p>content-2</p>
+		</div>
+		<div class="box2">
+			<p>content-3</p>
+			<p>content-4</p>
+		</div>
+		<div class="box3">
+			<p>content-5</p>
+			<p>content-6</p>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+

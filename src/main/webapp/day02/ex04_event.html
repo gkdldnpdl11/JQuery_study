@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>event</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// 마우스 이벤트 : click, on, bind, dblclick(더블클릭), mouseover, mouseout
+				/* click : 동적 처리 불가
+					$("#p1").click(function() {	alert("click success");}); */
+					
+				/* $("#p1").on("click", function() {	alert("click success!");}); */
+				
+				/* 동적 처리 가능
+					$("#p1").bind("click", function() {	alert("click success@");}); */
+				$("#p1").dblclick(function() {	alert("click success@@");});
+				
+				// 그림 영역에 마우스가 올라가면 이미지 변경 : mouseover()
+				$("#img").mouseover(function() {
+					$("#img").attr("src","../images/img06_2.gif");
+				});
+				
+				// 그림 영역에 마우스가 벗어나면 이미지 변경 : mouseout()
+				$("#img").mouseout(function() {
+					/* $("#img").attr("src","../images/img06_1.gif"); */
+					$(this).attr("src","../images/img06_1.gif");
+				});
+				
+				// keyup() : 글자를 입력하면
+				// val() : 값 속성 가져오기
+				
+				$("#uname").keyup(function() {
+					let name = $(this).val();
+					console.log(name);
+				});
+				
+				$("#pwd2").keyup(function() {
+					if ($("#pwd").val() === $("#pwd2").val()) {
+						$("#s1").html("<b>correct!</b>");
+					} else {
+						$("#s1").html("<b>check again</b>");
+						$("#s1").val("");
+						$("#pwd2").focus();
+					}
+				});
+				
+				// checkbox : change()
+				$("#chk").change(function() {
+					// check 되었으면 넣기, 아니면 빼기
+					const str= $("#addr").val();
+					// is(":checked") = 체크가 되었는지 물어봄, 체크 되었으면 true
+					if ($(this).is(":checked")) {
+						$("#addr2").val(str);
+					} else {
+						$("#addr2").val("");
+					}
+				});
+				
+				// radio attribute
+				$("input[type=radio]").change(function() {
+					const str = $(this).val();
+					alert(str);
+					console.log(str);
+				});
+				
+				$("#sel").change(function() {
+					let str="";
+					// multi 라서 여러개 선택 가능함 그래서 each() 사용
+					$("#sel option:selected").each(function() {
+						str += $(this).text()+" ";
+					});
+					$("#s2").text(str);
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<p><span id="p1">event process</span></p>
+		<p><img id="img" alt="image" src="../images/img06_1.gif"></p>
+		<p>name : <input type="text" name="uname" id="uname"></p>
+		<hr>
+		
+		<p>Address : <input type="text" name="addr" id="addr"></p>
+		<p><input type="checkbox" id="chk">same the above</p>
+		<p>Address : <input type="text" name="addr2" id="addr2"></p>
+		<hr>
+		
+		<p>Password : <input type="password" name="pwd" id="pwd"></p>
+		<p>pwCheck : <input type="password" name="pwd2" id="pwd2"></p>
+		<p><span id="s1"></span></p>
+		<hr>
+		
+		<p>
+			<input type="radio" name="fg_color" value="red">RED
+			<input type="radio" name="fg_color" value="blue">BLUE
+			<input type="radio" name="fg_color" value="green">GREEN
+		</p>
+		<hr>
+		
+		<select name="sweets" multiple="multiple" id="sel" size="6">
+			<option>Chocolate</option>
+			<option selected>Candy</option>
+			<option>Taffy</option>
+			<option selected>Caramel</option>
+			<option>Fudge</option>
+			<option>Cookie</option>
+		</select>
+		<p><span id="s2"></span></p>
+	</body>
+</html>

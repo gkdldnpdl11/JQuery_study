@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>before, after</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				// eq(index) : index값으로 선택
+				$("#wrap p:eq(1)").css("background","skyblue");
+				// before() : index를 기준으로 선택한 요소 이전에 삽입(기능)
+				$("#wrap p:eq(1)").before("<p>Before</p>");
+				// after() : index를 기준으로 선택한 요소 이후에 삽입(기능)
+				$("#wrap p:eq(1)").after("<p>After</p>");
+				// prepend() : index를 기준으로 선택한 요소의 맨 앞에 삽입
+				$("#wrap p:eq(1)").prepend("<p>Prepend</p>");
+				// append() : index를 기준으로 선택한 요소의 맨 뒤에 삽입
+				$("#wrap p:eq(1)").append("<p>Append</p>");
+			});
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+			<p>content-1</p>
+			<p>content-2</p>
+			<p>content-3</p>
+		</div>
+	</body>
+</html>

@@ -21,8 +21,62 @@
 				const res1=$.map(arr1, function(obj,idx) {
 					if(obj.addr === 'seoul')
 					return obj.name;
-				})
+				});
 				console.log(res1);
+				
+				// 마지막 인자를 넣지 않으면 true를 반환하는 모든 요소로 구성된 배열이 반환된다(객체로 반환)
+				const res2 = $.grep(arr1, function (obj, idx) {
+					if(obj.addr === 'seoul')
+						return true;
+					else
+						return false;
+				});
+				console.log(res2);
+				
+				const t1 = $.grep(arr1, function (obj, idx) {
+					if(obj.addr === 'seoul'){
+						return true;
+					} else {
+						return false;
+					}
+				});
+				console.log(t1);
+
+				const t2 = $.grep(arr1, function (obj, idx) {
+					if(obj.addr === 'seoul')
+					return obj.name;
+				});
+				console.log(t2);
+				
+				const t3 = $.grep(arr1, function (obj, idx) {
+					if(obj.addr === 'seoul')
+					return obj;
+				});
+				console.log(t3);
+				
+				// 0보다 크지 않은 숫자를 포함하도록 숫자 배열을 필터링한다
+				// 이 때, true를 생략하면 반대 결과가 나온다
+				const res3=$.grep([0, 1, 2], function(n, i) {
+					return n>0;
+				}, true);
+				console.log(res3);		// [0]
+				
+				const t4=$.grep([0, 1, 2], function(n, i) {
+					return n>0;
+				});
+				console.log(t4);		// [1, 2]
+				
+				// seoul을 가지고 있는 요소만 배열로 반환
+				const res4 = $.grep(arr1, function (obj, idx) {
+					return obj.addr === 'seoul';
+				});
+				console.log(res4);
+				
+				// seoul을 제외한 요소를 배열로 반환
+				const res5 = $.grep(arr1, function (obj, idx) {
+					return obj.addr === 'seoul';
+				}, true);
+				console.log(res5);
 			});
 		</script>
 	</head>

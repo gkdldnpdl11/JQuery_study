@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>event()</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(".btn1").click(function() {
+					/* $("p:eq(1)").css("color","red");
+					$("p:nth-of-type(2)").css("color","lime");
+					$("p:nth-of-type(2)").css({"color":"lime"}); */
+					$(".btn1").parent().next().css("color","red");	/* 가장 많이 쓰는 방법 */
+				});
+				
+				// 마우스포인터를 올리거나 포커스를 이용하면 글자색 초록색
+				// 마우스 포커스가 벗어나면 글자색 검정색
+				$(".btn2").on({
+					"mouseover focus": function(){
+						$(".btn2").parent().next().css("color","green");
+					},
+					"mouseout blur" : function(){
+						$(".btn2").parent().next().css("color","black");
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<!-- 
+			1. 단독(이벤트가 하나일 때) : event() 형식 = $(이벤트대상, 선택자).이벤트메소드(function () { 실행 내용(JS) } );	=> click
+			2. 그룹 : 한가지 이상의 동작을 이벤트를 등록 할 때 	=> on
+							$(이벤트대상, 선택자).on(이벤트종류1, 이벤트종류2, ..., function() { 실행내용(JS) } );
+							$(이벤트대상, 선택자).on( {이벤트종류1, 이벤트종류2, ..., function() { 실행내용(JS) } } );
+							$(이벤트대상).on({
+								이벤트종류1: function(){ 실행내용(JS) },
+								이벤트종류2: function(){ 실행내용(JS) },
+								이벤트종류3: function(){ 실행내용(JS) }
+							});
+		-->
+		<p><button class="btn1">클릭하면 글자색을 빨간색</button></p>
+		<p>content-1</p>
+		<p><button class="btn2">마우스포인터를 올리거나 포커스를 이용하면 글자색 초록색</button></p>
+		<p>content-2</p>
+	</body>
+</html>
